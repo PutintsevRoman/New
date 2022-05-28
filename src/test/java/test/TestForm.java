@@ -3,13 +3,11 @@ package test;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 
-import java.awt.*;
+
 import java.io.File;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class TestForm {
@@ -22,7 +20,7 @@ public class TestForm {
     }
 
     @Test
-    void FirstTest(){
+    void firstTest(){
         open("/automation-practice-form");
 
         // Some staff
@@ -36,7 +34,7 @@ public class TestForm {
 
         // Radio
         $("[for='gender-radio-1']").click();
-        $("[id=userNumber]").setValue("123123123");
+        $("[id=userNumber]").setValue("1234567890");
 
         // Date
         $("[id=dateOfBirthInput]").click();
@@ -55,7 +53,7 @@ public class TestForm {
 
         //File
         $("[id=uploadPicture]").uploadFile(new
-                File("C:\\Users\\putin\\IdeaProjects\\Home\\a.png"));
+                File("C:\\Users\\putin\\IdeaProjects\\Home\\resources\\a.png"));
 
         //address
         $("[id=currentAddress]").setValue("Some address");
@@ -69,18 +67,18 @@ public class TestForm {
 
 
         //Checks
-        $("#firstName.mr-sm-2.form-control").shouldHave(value("Alexey"));
-        $("#lastName.mr-sm-2.form-control").shouldHave(value("Victorov"));
-        $("#gender-radio-1.custom-control-input").shouldHave(checked);
-        $("#userNumber.mr-sm-2.form-control").shouldHave(value("123123123"));
-        $("#dateOfBirthInput.form-control").shouldHave(value("21 Aug 1990"));
-        $("[id = subjectsWrapper]").shouldHave(text("Hindi"));
-        $("#hobbies-checkbox-1.custom-control-input").shouldHave(checked);
-        $("#hobbies-checkbox-3.custom-control-input").shouldHave(checked);
-        $("#hobbies-checkbox-2.custom-control-input").shouldNotHave(checked);
-        $("#currentAddress.form-control").shouldHave(value("Some address"));
-        $("[id = stateCity-wrapper]").shouldHave(text("NCR"));
-        $("[id = stateCity-wrapper]").shouldHave(text("Noida"));
+        $(".table-responsive").shouldHave(
+                text("Alexey Victorov"),
+                text("alex_vicktory@mail.com"),
+                text("Male"),
+                text("1234567890"),
+                text("21 August,1990"),
+                text("Hindi"),
+                text("Sports, Music"),
+                text("a.png"),
+                text("Some address"),
+                text("NCR Noida")
+                );
     }
 
 }
