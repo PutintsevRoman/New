@@ -53,7 +53,7 @@ public class TestForm {
 
         //File
         $("[id=uploadPicture]").uploadFile(new
-                File("C:\\Users\\putin\\IdeaProjects\\Home\\resources\\a.png"));
+                File("C:\\Users\\putin\\IdeaProjects\\Home\\src\\test\\resources\\a.png"));
 
         //address
         $("[id=currentAddress]").setValue("Some address");
