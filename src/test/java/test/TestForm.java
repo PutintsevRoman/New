@@ -11,34 +11,49 @@ public class TestForm extends TestBase {
     void firstTest() {
 
         RegistrationFormPage registrationFormPage = new RegistrationFormPage();
+        TestData testData = new TestData();
+
+        String firstName = testData.getName(),
+               lastName = testData.getLastName(),
+               userEmail = testData.getUserEmail(),
+               userGender = testData.getUserSex(),
+               userNumber = testData.getUserPhone(),
+               userHobbies = testData.getUserHobbies(),
+               userSubject = testData.getUserSubject(),
+               userAddress = testData.getUserAddress(),
+               userState = testData.getUserState(),
+               userCity = testData.getUserCity(userState),
+               month = testData.getRandomMonth(),
+               day = testData.getRandomDay(),
+               year = testData.getRandomYear();
 
         registrationFormPage.openPage()
-                .setFirstName()
-                .setLastName()
-                .setUserEmail()
-                .setGenderRadio(1)
-                .setUserNumber()
-                .setCheckbox(1)
-                .setSubject()
-                .setCurrentAddress()
+                .setFirstName(firstName)
+                .setLastName(lastName)
+                .setUserEmail(userEmail)
+                .setGenderRadio(userGender)
+                .setUserNumber(userNumber)
+                .setCheckbox(userHobbies)
+                .setSubject(userSubject)
+                .setCurrentAddress(userAddress)
                 .setFile()
-                .setState()
-                .setCity()
-                .setDate("August", "1990", "21")
+                .setState(userState)
+                .setCity(userCity)
+                .setDate(month, year, day)
                 .submit();
 
 
-        //Checks
-        registrationFormPage.checkResult("Student Name", "Alexey Victorov")
-                .checkResult("Student Email", "alex_vicktory@mail.com")
-                .checkResult("Gender", "Male")
-                .checkResult("Mobile", "1234567890")
-                .checkResult("Date of Birth", "21 August,1990")
-                .checkResult("Subjects", "Hindi")
-                .checkResult("Hobbies", "Sports")
+
+        registrationFormPage.checkResult("Student Name", firstName + " " +lastName)
+                .checkResult("Student Email", userEmail)
+                .checkResult("Gender", userGender)
+                .checkResult("Mobile", userNumber)
+                .checkResult("Date of Birth", day + " "+month+"," + year)
+                .checkResult("Subjects", userSubject)
+                .checkResult("Hobbies", userHobbies)
                 .checkResult("Picture", "a.png")
-                .checkResult("Address", "Some address")
-                .checkResult("State and City", "NCR Noida");
+                .checkResult("Address", userAddress)
+                .checkResult("State and City", userState + " " +userCity);
 
     }
 

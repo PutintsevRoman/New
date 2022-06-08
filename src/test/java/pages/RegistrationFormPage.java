@@ -7,6 +7,7 @@ import pages.components.ResultTableComponents;
 import java.io.File;
 
 
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationFormPage {
@@ -35,45 +36,43 @@ public class RegistrationFormPage {
         return this;
     }
 
-    public RegistrationFormPage setFirstName() {
-        firstNameInput.setValue("Alexey");
+    public RegistrationFormPage setFirstName(String value) {
+        firstNameInput.setValue(value);
         return this;
     }
 
-    public RegistrationFormPage setLastName() {
-        lastNameInput.setValue("Victorov");
+    public RegistrationFormPage setLastName(String value) {
+        lastNameInput.setValue(value);
         return this;
     }
 
-    public RegistrationFormPage setUserEmail() {
-        userEmailInput.setValue("alex_vicktory@mail.com");
+    public RegistrationFormPage setUserEmail(String value) {
+        userEmailInput.setValue(value);
         return this;
     }
 
-    public RegistrationFormPage setGenderRadio(int num) {
-        SelenideElement gender_radioInput = $("[for='gender-radio-" + num + "']");
-        gender_radioInput.click();
+    public RegistrationFormPage setGenderRadio(String value) {
+         $("#genterWrapper").$(byText(value)).click();
         return this;
     }
 
-    public RegistrationFormPage setUserNumber() {
-        userNumberInput.setValue("1234567890");
+    public RegistrationFormPage setUserNumber(String value) {
+        userNumberInput.setValue(value);
         return this;
     }
 
-    public RegistrationFormPage setCheckbox(int num) {
-        SelenideElement checkboxInput = $("[for='hobbies-checkbox-" + num + "']");
-        checkboxInput.click();
+    public RegistrationFormPage setCheckbox(String value) {
+        $("#hobbiesWrapper").$(byText(value)).click();
         return this;
     }
 
-    public RegistrationFormPage setSubject() {
-        subjectsInput.setValue("H").pressEnter();
+    public RegistrationFormPage setSubject(String value) {
+        subjectsInput.setValue(value).pressEnter();
         return this;
     }
 
-    public RegistrationFormPage setCurrentAddress() {
-        currentAddressInput.setValue("Some address");
+    public RegistrationFormPage setCurrentAddress(String value) {
+        currentAddressInput.setValue(value);
         return this;
     }
 
@@ -83,13 +82,13 @@ public class RegistrationFormPage {
         return this;
     }
 
-    public RegistrationFormPage setCity() {
-        cityInput.setValue("Noida").pressEnter();
+    public RegistrationFormPage setCity(String value) {
+        cityInput.setValue(value).pressEnter();
         return this;
     }
 
-    public RegistrationFormPage setState() {
-        stateInput.setValue("NCR").pressEnter();
+    public RegistrationFormPage setState(String value) {
+        stateInput.setValue(value).pressEnter();
         return this;
     }
 
