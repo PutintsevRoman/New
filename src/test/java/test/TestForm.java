@@ -25,7 +25,8 @@ public class TestForm extends TestBase {
                userCity = testData.getUserCity(userState),
                month = testData.getRandomMonth(),
                day = testData.getRandomDay(),
-               year = testData.getRandomYear();
+               year = testData.getRandomYear(),
+                file = "a.png";
 
         registrationFormPage.openPage()
                 .setFirstName(firstName)
@@ -36,7 +37,7 @@ public class TestForm extends TestBase {
                 .setCheckbox(userHobbies)
                 .setSubject(userSubject)
                 .setCurrentAddress(userAddress)
-                .setFile()
+                .setFile(file)
                 .setState(userState)
                 .setCity(userCity)
                 .setDate(month, year, day)
@@ -51,7 +52,7 @@ public class TestForm extends TestBase {
                 .checkResult("Date of Birth", day + " "+month+"," + year)
                 .checkResult("Subjects", userSubject)
                 .checkResult("Hobbies", userHobbies)
-                .checkResult("Picture", "a.png")
+                .checkResult("Picture", file)
                 .checkResult("Address", userAddress)
                 .checkResult("State and City", userState + " " +userCity);
 

@@ -89,4 +89,8 @@ public class TestData {
                 "September", "October", "November", "December"};
         return month[getRandomInt(0,11)];
     }
+    public String getFile() {
+        String file ="a.png";
+        return file;
+    }
 }
