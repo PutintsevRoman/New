@@ -77,8 +77,7 @@ public class RegistrationFormPage {
     }
 
     public RegistrationFormPage setFile(String file) {
-        fileInput.uploadFile(new
-                File("src\\test\\resources\\"+ file));
+        fileInput.uploadFromClasspath(file);
         return this;
     }
 
