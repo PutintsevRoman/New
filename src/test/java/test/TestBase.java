@@ -25,16 +25,20 @@ public class TestBase {
         capabilities.setCapability("enableVideo", true);
 
         Configuration.browserCapabilities = capabilities;
+        String browser =System.getProperty("browser");
+        String browserVersion = System.getProperty("browserVersion");
+        String browserSize =System.getProperty("browserSize");
+        System.out.println(browser);
+        System.out.println(browserVersion);
+        System.out.println(browserSize);
 
         String remoteDriverUrl = System.getProperty("remoteDriverUrl", "selenoid.autotests.cloud/wd/hub");
-        Configuration.browser = System.getProperty("browser", "chrome");
-        Configuration.browserVersion = System.getProperty("browserVersion");
-        Configuration.browserSize = System.getProperty("browserSize", "1366x768");
+        Configuration.browser = browser;
+        Configuration.browserVersion =browserVersion;
+        Configuration.browserSize = browserSize;
         Configuration.remote = String.format("https://%s:%s@%s", config.login(), config.password(), remoteDriverUrl);
         System.out.println(String.format("https://%s:%s@%s", config.login(), config.password(), remoteDriverUrl));
-        System.out.println(System.getProperty("browser"));
-        System.out.println(System.getProperty("browserVersion"));
-        System.out.println(System.getProperty("browserSize"));
+
 
     }
 
