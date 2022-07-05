@@ -32,6 +32,9 @@ public class TestBase {
         Configuration.browserSize = System.getProperty("browserSize", "1366x768");
         Configuration.remote = String.format("https://%s:%s@%s", config.login(), config.password(), remoteDriverUrl);
         System.out.println(String.format("https://%s:%s@%s", config.login(), config.password(), remoteDriverUrl));
+        System.out.println(System.getProperty("browser"));
+        System.out.println(System.getProperty("browserVersion"));
+        System.out.println(System.getProperty("browserSize"));
 
     }
 
