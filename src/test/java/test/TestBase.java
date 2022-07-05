@@ -25,9 +25,9 @@ public class TestBase {
         capabilities.setCapability("enableVideo", true);
 
         Configuration.browserCapabilities = capabilities;
-        String browser =System.getProperty("browser");
+        String browser =System.getProperty("browser","chrome");
         String browserVersion = System.getProperty("browserVersion");
-        String browserSize =System.getProperty("browserSize");
+        String browserSize =System.getProperty("browserSize","1920x1080");
         System.out.println(browser);
         System.out.println(browserVersion);
         System.out.println(browserSize);
